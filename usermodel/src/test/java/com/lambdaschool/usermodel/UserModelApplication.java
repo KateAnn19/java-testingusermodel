@@ -1,5 +1,6 @@
 package com.lambdaschool.usermodel;
 
+import com.lambdaschool.usermodel.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  * Starting class for testing
  */
-@EnableWebMvc
+//@EnableWebMvc
 // @EnableJpaAuditing
 @SpringBootApplication
 public class UserModelApplication
@@ -24,6 +25,9 @@ public class UserModelApplication
 
     @Autowired
     private static Environment env;
+
+
+
 
     private static void checkEnvironmentVariable(String envvar)
     {
