@@ -2,8 +2,6 @@ package com.lambdaschool.usermodel.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -13,19 +11,10 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-/**
- * Configures the default Swagger Documentation
- */
 @Configuration
 @EnableSwagger2
-@Import(BeanValidatorPluginsConfiguration.class)
 public class Swagger2Config
 {
-    /**
-     * Configures what to document using Swagger
-     *
-     * @return A Docket which is the primary interface for Swagger configuration
-     */
     @Bean
     public Docket api()
     {
@@ -38,20 +27,15 @@ public class Swagger2Config
             .apiInfo(apiEndPointsInfo());
     }
 
-    /**
-     * Configures some information related to the Application for Swagger
-     *
-     * @return ApiInfo a Swagger object containing identification information for this application
-     */
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("User Model Example")
-            .description("User Model Example")
-            .contact(new Contact("John Mitchell",
+        return new ApiInfoBuilder().title("Sample Employees Project")
+            .description("A Project Used to Introduce Swagger Documentation")
+            .contact(new Contact("Kate McFee",
                 "http://www.lambdaschool.com",
                 "john@lambdaschool.com"))
             .license("MIT")
-            .licenseUrl("https://github.com/LambdaSchool/java-usermodel/blob/master/LICENSE")
+            .licenseUrl("https://github.com/LambdaSchool/java-sampleemps/blob/master/LICENSE")
             .version("1.0.0")
             .build();
     }
